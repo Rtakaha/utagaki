@@ -1,0 +1,11 @@
+/Users/ryo/.rbenv/versions/2.2.3/bin/ruby -r ./siteconf20181004-53776-aa6j9g.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20181004-53776-u51sq8/bootsnap

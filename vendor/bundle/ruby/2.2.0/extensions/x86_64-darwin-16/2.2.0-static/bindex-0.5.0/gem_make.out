@@ -1,0 +1,11 @@
+/Users/ryo/.rbenv/versions/2.2.3/bin/ruby -r ./siteconf20181004-53776-1goqlqp.rb extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20181004-53776-uft4jb/bindex
