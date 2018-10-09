@@ -8,6 +8,21 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header>
+    <div class="header-list">
+      <ul>
+        <li>
+          <%=link_to("メインページ","/main") %>
+        </li>
+        <li>
+          <%= link_to("新規登録", "/signup") %>
+        </li>
+        <li>
+          <%= link_to("ログイン","/login") %>
+        </li>
+      </ul>
+    </div>
+  </header>
 
   <body>
     <%= yield %>
