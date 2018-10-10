@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   post "login" => "users#login"
   post "users/create" => "users#create"
   get "signup" => "users#new"
+  resources :users
 end
 
