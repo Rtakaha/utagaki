@@ -11,6 +11,11 @@
   <header>
     <div class="header-list">
       <ul>
+        <% if @current_user %>
+        <li>
+          <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
+        </li>
+        <% end %>
         <li>
           <%=link_to("メインページ","/main") %>
         </li>
@@ -19,6 +24,9 @@
         </li>
         <li>
           <%= link_to("ログイン","/login") %>
+        </li>
+        <li>
+          <%= link_to("ログアウト","/logout",{method: :post}) %>
         </li>
       </ul>
     </div>
