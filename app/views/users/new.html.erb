@@ -23,6 +23,11 @@
           <input name="email" value="<%= @user.email %>">
 
           <p>パスワード</p>
+          <% @user.errors.full_messages_for(:password).each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
           <input type="password" name="password" value="<%= @user.password %>">
           <input type="submit" value="新規登録">
         <% end %>
