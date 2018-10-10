@@ -17,6 +17,12 @@ class UsersController < ApplicationController
   def login_form
   end
 
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "ログアウトしました"
+    redirect_to("/login")
+  end
+
   def new
     @user = User.new
   end
