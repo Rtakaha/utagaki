@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_12_071516) do
+<<<<<<< Updated upstream
+ActiveRecord::Schema.define(version: 2018_10_15_020722) do
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.string "theme"
+    t.integer "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+=======
+ActiveRecord::Schema.define(version: 2018_10_15_022008) do
+>>>>>>> Stashed changes
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -20,6 +32,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_071516) do
     t.string "image_name"
     t.string "password_digest"
     t.string "sex"
+    t.string "tag"
   end
 
 end
