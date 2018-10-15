@@ -32,7 +32,8 @@ class UsersController < ApplicationController
         name: params[:name],
         email: params[:email],
         image_name: "default_user.jpg",
-        password: params[:password]
+        password: params[:password],
+        tag: SecureRandom.base64(9)
     )
     if @user.save
       session[:user_id] = @user.id
@@ -56,6 +57,7 @@ class UsersController < ApplicationController
     @user.name = params[:name]
     @user.email = params[:email]
     @user.sex = params[:sex]
+    @user.tag = params[:tag]
 
     if params[:image]
       @user.image_name = "#{@user.id}.jpg"
