@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   post "login" => "users#login"
   post "logout" => "users#logout"
   get "login" => "users#login_form"
-
-
+  post "groups/create" => "groups#create"
+  get "register" => "groups#new"
 
   resources :users, :groups
 end
