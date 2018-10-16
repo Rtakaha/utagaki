@@ -1,8 +1,12 @@
 <h1>main page</h1>
 <p>people come here after they log in</p>
 <footer>
-  <li>
+  <ul>
+    <div>
     <%= link_to (image_tag ("/user_images/group.JPG")), "/groups/show" %>
-    "グループページ"
-  </li>
+    グループ一覧ページ
+    <%= link_to (image_tag ("/user_images/friends.JPG")), "/friends/show" %>
+    フレンド一覧ページ
+    </div>
+  </ul>
 </footer>
