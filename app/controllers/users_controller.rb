@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       @error_message = "メールアドレスまたはパスワードが間違っています"
       @email = params[:email]
       @password = params[:password]
-      render("login")
+      render("users/login_form")
     end
   end
 
