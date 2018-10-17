@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'friends/show'
   get '/main' => 'main#top'
   get '/' => 'home#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -12,6 +13,6 @@ Rails.application.routes.draw do
   post "groups/create" => "groups#create"
   get "register" => "groups#new"
 
-  resources :users, :groups
+  resources :users, :groups, :friends
 end
 
