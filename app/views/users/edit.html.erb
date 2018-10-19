@@ -14,13 +14,6 @@
           <% end %>
           <input name="name" value="<%= @user.name %>">
 
-          <p>性別</p>
-          <input id="male" type="radio" name="sex" value="男" />
-          <label for="male">男</label>
-          <input id="female" type="radio" name="sex" value="女" />
-          <label for="female">女</label>
-          <input id="others" type="radio" name="sex" value="その他" />
-          <label for="others">その他</label>
 
           <p>画像</p>
           <input name="image" type="file">
@@ -33,12 +26,12 @@
           <input name="email" value="<%= @user.email %>">
 
           <p>ユーザーID</p>
-          <% @user.errors.full_messages_for(:tag).each do |message| %>
+          <% @user.errors.full_messages_for(:userid).each do |message| %>
             <div class="form-error">
               <%= message %>
             </div>
           <% end %>
-          <input name="tag" value="<%= @user.tag %>">
+          <input name="userid" value="<%= @user.userid %>">
           <input type="submit" value="保存">
         <% end %>
       </div>
