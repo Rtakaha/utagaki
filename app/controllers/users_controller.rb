@@ -80,11 +80,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
+  def search
     @users = User.all
     # パラメータとしてtagを受け取っている場合は絞って検索する
-    if params[:tag].present?
-      @users = @users.get_by_tag params[:tag]
+    if params[:userid].present?
+      @users = @users.get_by_userid params[:userid]
       @status = 1
     end
   end
