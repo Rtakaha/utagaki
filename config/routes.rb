@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   get "register" => "groups#new"
 
   resources :users, :groups, :friends
+
+
 end
 

@@ -21,6 +21,10 @@
   ID:<%= @user.tag %>
 </p>
 
-<p>
-  <%= link_to("編集", "/users/#{@user.id}/edit") %>
-</p>
+<% if @current_user.id == params[:id].to_i %>
+  <p>
+    <%= link_to("編集", "/users/#{@user.id}/edit") %>
+  </p>
+<% else %>
+  <p>フレンド申請（のちのちボタンにします）</p>
+<% end %>

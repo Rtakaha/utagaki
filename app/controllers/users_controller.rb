@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :ensure_correct_user, {only: [:edit, :update]}
+
   def login
     @user = User.find_by(email: params[:email] )
     if @user && @user.authenticate(params[:password])
@@ -30,15 +32,21 @@ class UsersController < ApplicationController
   def create
     @user = User.new(
         name: params[:name],
+        sex: params[:sex],
         email: params[:email],
         image_name: "default_user.jpg",
         password: params[:password],
         tag: SecureRandom.base64(9)
     )
+
+
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to("/main")
+    elsif @user.sex.nil?
+      @error_message = "性別を選択してください"
+      render("users/new")
     else
       render("users/new")
     end
@@ -56,7 +64,6 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
     @user.email = params[:email]
-    @user.sex = params[:sex]
     @user.tag = params[:tag]
 
     if params[:image]
@@ -70,6 +77,22 @@ class UsersController < ApplicationController
       redirect_to("/users/#{@user.id}")
     else
       render("users/edit")
+    end
+  end
+
+  def index
+    @users = User.all
+    # パラメータとしてtagを受け取っている場合は絞って検索する
+    if params[:tag].present?
+      @users = @users.get_by_tag params[:tag]
+      @status = 1
+    end
+  end
+
+  def ensure_correct_user
+    if @current_user.id != params[:id].to_i
+      flash[:notice] = "権限がありません"
+      redirect_to("/main")
     end
   end
 

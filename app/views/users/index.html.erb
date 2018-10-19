@@ -1,0 +1,16 @@
+<h>ユーザー検索</h>
+
+<div>
+  <%= form_tag(users_path, method: "get") do %>
+    <%= label_tag :tag, "ユーザーID" %><%= text_field_tag :tag, params[:tag] %>
+    <%= submit_tag "検索" %>
+  <% end %>
+</div>
+<p>名前 : ID</p>
+
+  <% if @status %>
+    <% @users.each do |user| %>
+    <%= link_to(user.name, "/users/#{user.id}") %> : <%= user.tag %><br />
+  <% end %>
+
+<% end %>
