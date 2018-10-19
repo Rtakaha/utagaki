@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   get "login" => "users#login_form"
   post "groups/create" => "groups#create"
   get "register" => "groups#new"
+  get "users/search" => "users#search"
 
   resources :users, :groups, :friends
+
+
 end
 

@@ -4,6 +4,7 @@
     <div class="form users-form">
       <div class="form-body">
 
+
         <%= form_tag("/users/create") do %>
 
           <p>ユーザー名</p>
@@ -13,6 +14,20 @@
             </div>
           <% end %>
           <input name="name" value="<%= @user.name %>">
+
+          <p>性別</p>
+          <% if @error_message %>
+            <div class="form-error">
+              <%= @error_message %>
+            </div>
+          <% end %>
+          <input id="male" type="radio" name="sex" value="男" />
+          <label for="male">男</label>
+          <input id="female" type="radio" name="sex" value="女" />
+          <label for="female">女</label>
+          <input id="others" type="radio" name="sex" value="その他" />
+          <label for="others">その他</label>
+
 
           <p>メールアドレス</p>
           <% @user.errors.full_messages_for(:email).each do |message| %>
