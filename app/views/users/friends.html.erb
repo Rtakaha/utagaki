@@ -1,0 +1,9 @@
+<h>フォロー中のユーザー</h>
+
+<p>名前 : ID</p>
+<p>
+<% @friends.each do |friend| %>
+    <% user = User.find_by(id: friend.followto_id) %>
+    <%= link_to(user.name, "/users/#{user.id}") %> : <%= user.userid %> <br />
+<% end %>
+</p>
