@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root to: 'rooms#show'
   get 'friends/show'
   get '/main' => 'main#top'
   get '/' => 'home#top'
@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get "register" => "groups#new"
   get "users/search" => "users#search"
 
-  resources :users, :groups, :friends
+  resources :users, :groups, :friends, :rooms
+  mount ActionCable.server => '/cable'
 
 
 end
