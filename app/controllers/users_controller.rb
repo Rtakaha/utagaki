@@ -36,7 +36,7 @@ class UsersController < ApplicationController
         email: params[:email],
         image_name: "default_user.jpg",
         password: params[:password],
-        tag: SecureRandom.base64(9)
+        userid: SecureRandom.base64(9)
     )
 
 
@@ -54,6 +54,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @friends_count = Friend.where(followfrom_id: @current_user.id).count
   end
 
   def edit
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
     @user.email = params[:email]
-    @user.tag = params[:tag]
+    @user.userid = params[:userid]
 
     if params[:image]
       @user.image_name = "#{@user.id}.jpg"
@@ -87,6 +88,11 @@ class UsersController < ApplicationController
       @users = @users.get_by_userid params[:userid]
       @status = 1
     end
+  end
+
+  def friends
+    @user = User.find_by(id: params[:id])
+    @friends = Friend.where(followfrom_id: @current_user.id)
   end
 
   def ensure_correct_user

@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_19_034627) do
+ActiveRecord::Schema.define(version: 2018_10_23_033047) do
 
   create_table "friends", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "follower_id"
-    t.integer "following_id"
+    t.integer "followfrom_id"
+    t.integer "followto_id"
   end
 
   create_table "groups", force: :cascade do |t|

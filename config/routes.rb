@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   post "groups/create" => "groups#create"
   get "register" => "groups#new"
   get "users/search" => "users#search"
+  post "friends/:user_id/create" => "friends#create"
+  post "friends/:user_id/destroy" => "friends#destroy"
+  get "users/:id/friends" => "users#friends"
 
   resources :users, :groups, :friends, :rooms
   mount ActionCable.server => '/cable'
