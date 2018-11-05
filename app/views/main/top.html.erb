@@ -1,12 +1,16 @@
 <h1>main page</h1>
 <p>people come here after they log in</p>
-<footer>
-  <ul>
-    <div>
-    <%= link_to (image_tag ("/user_images/group.JPG")), "/groups/show" %>
+
+  <div class="row align-items-end">
+    <div class="col">
+      <%= link_to (image_tag ("/user_images/group.JPG")), "/groups/show" %>
     グループ一覧ページ
-    <%= link_to (image_tag ("/user_images/friends.JPG")), "/friends/show" %>
+    </div>
+    <div class="col">
+      <%= link_to (image_tag ("/user_images/friends.JPG")), "/friends/show" %>
     フレンド一覧ページ
     </div>
-  </ul>
-</footer>
+    <div class="col">
+      <%= link_to (image_tag ("/user_images/profile.jpeg")), user_path(:"#{@current_user.id}"), { :class => "nav-link"} %>
+    </div>
+  </div>
