@@ -7,7 +7,7 @@ class FriendsController < ApplicationController
   def create
 
     @friend = Friend.new(
-        followfrom_id: @current_user.id,
+        followfrom_id: current_user.id,
         followto_id: params[:user_id]
     )
     if @friend.save
@@ -16,7 +16,7 @@ class FriendsController < ApplicationController
   end
 
   def destroy
-    @friend = Friend.find_by(followfrom_id: @current_user.id, followto_id: params[:user_id])
+    @friend = Friend.find_by(followfrom_id: current_user.id, followto_id: params[:user_id])
     @friend.destroy
     redirect_to("/users/#{params[:user_id]}")
   end
