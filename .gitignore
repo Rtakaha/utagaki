@@ -34,3 +34,6 @@ vendor/bundle
 
 # .idea files
 .idea/
+
+# environment variable
+.env

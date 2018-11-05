@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+<<<<<<< Updated upstream
+=======
+  root to: 'rooms#show'
+
+  # url for callback
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  # for logout
+  # devise_scope :user do
+  #   delete :sign_out, to: 'devise/sessions#destroy', as: :destroy_user_session
+  # end
+>>>>>>> Stashed changes
 
   get 'friends/show'
   get '/main' => 'main#top'
