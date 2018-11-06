@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @friends_count = Friend.where(followfrom_id: @current_user.id).count
+    @friends_count = Friend.where(followfrom_id: current_user.id).count
   end
 
   def edit
@@ -92,11 +92,11 @@ class UsersController < ApplicationController
 
   def friends
     @user = User.find_by(id: params[:id])
-    @friends = Friend.where(followfrom_id: @current_user.id)
+    @friends = Friend.where(followfrom_id: current_user.id)
   end
 
   def ensure_correct_user
-    if @current_user.id != params[:id].to_i
+    if current_user.id != params[:id].to_i
       flash[:notice] = "権限がありません"
       redirect_to("/main")
     end

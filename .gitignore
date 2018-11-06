@@ -34,3 +34,8 @@ vendor/bundle
 
 # .idea files
 .idea/
+
+# environment variable
+.env
+
+.DS_Store

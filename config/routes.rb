@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root to: 'rooms#show'
+
+  # url for callback
+  devise_for :users
+
   get 'friends/show'
   get '/main' => 'main#top'
   get '/' => 'home#top'
@@ -7,9 +11,6 @@ Rails.application.routes.draw do
   post "users/:id/update" => "users#update"
   post "users/create" => "users#create"
   get "signup" => "users#new"
-  post "login" => "users#login"
-  post "logout" => "users#logout"
-  get "login" => "users#login_form"
   post "groups/create" => "groups#create"
   get "register" => "groups#new"
   get "users/search" => "users#search"
@@ -17,9 +18,9 @@ Rails.application.routes.draw do
   post "friends/:user_id/destroy" => "friends#destroy"
   get "users/:id/friends" => "users#friends"
 
-  resources :users, :groups, :friends, :rooms
+  resources :users, :only => [:index, :show, :edit]
+  resources :groups, :friends, :rooms
   mount ActionCable.server => '/cable'
-
 
 end
 

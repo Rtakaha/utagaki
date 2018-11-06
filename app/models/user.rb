@@ -1,10 +1,11 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
-  has_secure_password
-  validates :email, {uniqueness: true, presence: true}
-  validates :name, {presence: true}
-  validates :sex, {presence: true}
-  validates :userid, {uniqueness: true, presence: true}
+  validates :email, {uniqueness: true}
+  validates :userid, {uniqueness: true}
 
   #ユーザー名による絞り込み
   scope :get_by_userid, ->(userid) {
